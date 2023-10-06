@@ -2,6 +2,7 @@ import React from "react";
 import { Text, View } from "react-native";
 import { Link } from "expo-router";
 import Header from "../src/components/Header";
+import NavBar from "../src/components/NavBar";
 
 const index = () => {
   return (
@@ -9,7 +10,9 @@ const index = () => {
       <View>
         <Header />
       </View>
-      <Link href="/home">home</Link>
+      <View>
+        <NavBar />
+      </View>
     </View>
   );
 };
