@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
   itemsNavBar: {
     width: 80,
     display: "flex",
+    position: "relative",
     justifyContent: "center",
     alignItems: "center",
     height: 50,
@@ -34,11 +35,23 @@ const styles = StyleSheet.create({
   itemsIcon: {
     color: "#65676B",
   },
+  numberNotification: {
+    backgroundColor: "red",
+    position: "absolute",
+    top: 5,
+    right: 25,
+    textAlign: "center",
+    zIndex: 10,
+    width: 15,
+    fontSize: 10,
+    height: 15,
+    color: "white",
+    borderRadius: 50,
+  },
   activeItemsIcon: {
     color: "#0866ff",
   },
   activeItemsNavBar: {
-    backgroundColor: "#dedfdf",
     borderRadius: 10,
     borderColor: "#0866ff",
     borderBottomWidth: 3,
@@ -93,6 +106,7 @@ const NavBar = () => {
             activeItemIndex === 2 && styles.activeItemsNavBar,
           ]}
         >
+          <Text style={styles.numberNotification}>2</Text>
           <FontAwesome5
             style={[
               styles.itemsIcon,
@@ -110,6 +124,7 @@ const NavBar = () => {
             activeItemIndex === 3 && styles.activeItemsNavBar,
           ]}
         >
+          <Text style={styles.numberNotification}>2</Text>
           <Ionicons
             style={[
               styles.itemsIcon,
