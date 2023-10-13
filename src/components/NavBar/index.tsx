@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Dimensions,
   StyleSheet,
@@ -11,9 +11,10 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import { Link, router, useRouter } from "expo-router";
+import { useRoute } from "@react-navigation/native";
 var { width, height } = Dimensions.get("window");
-// console.log("🚀 ~ file: index.tsx:4 ~ height:", height);
-// console.log("🚀 ~ file: index.tsx:4 ~ width:", width);
+
 const styles = StyleSheet.create({
   navBarContainer: {
     display: "flex",
@@ -59,13 +60,30 @@ const styles = StyleSheet.create({
 });
 const NavBar = () => {
   const [activeItemIndex, setActiveItemIndex] = useState(0);
+  const isRoute = useRoute();
+  useEffect(() => {
+    // Kiểm tra route khi thay đổi
+    if (isRoute.name === "menu/index") {
+      setActiveItemIndex(4);
+    } else {
+      setActiveItemIndex(0);
+    }
+  }, [isRoute]);
+  const handleClickBar = () => {
+    router.replace("/menu");
+    handleItemClick(4);
+  };
+  const handleClickHome = () => {
+    router.replace("/");
+    handleItemClick(0);
+  };
 
   const handleItemClick = (index: number) => {
     setActiveItemIndex(index);
   };
   return (
     <View style={styles.navBarContainer}>
-      <TouchableOpacity onPress={() => handleItemClick(0)}>
+      <TouchableOpacity onPress={() => handleClickHome()}>
         <View
           style={[
             styles.itemsNavBar,
@@ -135,7 +153,8 @@ const NavBar = () => {
           />
         </View>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => handleItemClick(4)}>
+
+      <TouchableOpacity onPress={() => handleClickBar()}>
         <View
           style={[
             styles.itemsNavBar,
