@@ -5,16 +5,19 @@ const Avatar = ({
   width,
   height,
   borderRadius,
+  shadowColor,
 }: {
   width: number;
   height: number;
   borderRadius: number;
+  shadowColor?: string;
 }) => {
   const styles = StyleSheet.create({
     image: {
       width: width,
       height: height,
       borderRadius: borderRadius,
+      shadowColor: shadowColor,
     },
   });
   return (
