@@ -337,34 +337,34 @@ const MenuScreen = () => {
               <Text style={styles.textViewOther}>Đăng xuất</Text>
             </View>
           </TouchableOpacity>
-          <View>
-            <Portal>
-              <Modal
-                visible={visible}
-                contentContainerStyle={styles.modalConfirmLogout}
-              >
-                <Text style={styles.textModalConfirm}>
-                  Đăng xuất khỏi tài khoản của bạn?
-                </Text>
-                <View
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    marginLeft: "auto",
-                  }}
+            <View>
+              <Portal>
+                <Modal
+                  visible={visible}
+                  contentContainerStyle={styles.modalConfirmLogout}
                 >
-                  <Text onPress={hideModal} style={{ marginRight: 10 }}>
-                    HỦY
+                  <Text style={styles.textModalConfirm}>
+                    Đăng xuất khỏi tài khoản của bạn?
                   </Text>
-                  <Text
-                    onPress={handlePressButtonLogout}
-                    style={{ color: "red" }}
+                  <View
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      marginLeft: "auto",
+                    }}
                   >
-                    ĐĂNG XUẤT
-                  </Text>
-                </View>
-              </Modal>
-            </Portal>
+                    <Text onPress={hideModal} style={{ marginRight: 10 }}>
+                      HỦY
+                    </Text>
+                    <Text
+                      onPress={handlePressButtonLogout}
+                      style={{ color: "red" }}
+                    >
+                      ĐĂNG XUẤT
+                    </Text>
+                  </View>
+                </Modal>
+              </Portal>
           </View>
         </Animated.View>
       </ScrollView>
